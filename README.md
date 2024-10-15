@@ -51,41 +51,7 @@ Edit Task: Click on any task to edit the title or description.
 Mark Task as Completed: Check the box next to the task to mark it as completed.
 Delete Task: Use the delete button on the right side of the task to remove it from the list.
 Data Persistence: Your tasks will be saved locally, and you'll find them on the app even after closing and reopening.
-Code Snippets
-Task Model
-java
-Copy code
-public class Task {
-    private String title;
-    private String description;
-    private boolean isCompleted;
 
-    // Constructor, Getters, Setters
-    public Task(String title, String description) {
-        this.title = title;
-        this.description = description;
-        this.isCompleted = false;
-    }
-}
-Task RecyclerView Adapter
-java
-Copy code
-public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskViewHolder> {
-    private List<Task> taskList;
 
-    @Override
-    public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
-        Task task = taskList.get(position);
-        holder.taskTitle.setText(task.getTitle());
-        holder.taskCompleted.setChecked(task.isCompleted());
-    }
-}
-Task Storage using SharedPreferences
-java
-Copy code
-SharedPreferences sharedPreferences = getSharedPreferences("taskData", MODE_PRIVATE);
-SharedPreferences.Editor editor = sharedPreferences.edit();
-editor.putString("taskTitle", task.getTitle());
-editor.apply();
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
